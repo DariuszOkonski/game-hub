@@ -1,7 +1,9 @@
-// https://www.chakra-ui.com/
+// https://www.chakra-ui.com/ - css library
+// https://rawg.io/ - games api
 import { Grid, GridItem, Show } from '@chakra-ui/react';
 import './App.css';
 import NavBar from './userComponents/NavBar';
+import GameGrid from './userComponents/GameGrid';
 
 function App() {
   return (
@@ -19,8 +21,8 @@ function App() {
           Aside
         </GridItem>
       </Show>
-      <GridItem area='main' bg='dodgerblue'>
-        Main
+      <GridItem area='main'>
+        <GameGrid />
       </GridItem>
     </Grid>
   );
