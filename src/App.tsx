@@ -1,6 +1,6 @@
 // https://www.chakra-ui.com/ - css library
 // https://rawg.io/ - games api
-import { Grid, GridItem, HStack, Show } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, HStack, Show } from '@chakra-ui/react';
 import './App.css';
 import NavBar from './userComponents/NavBar';
 import GameGrid from './userComponents/GameGrid';
@@ -48,16 +48,18 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area='main'>
-        <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform) =>
-              setGameQuery((prevState) => ({
-                ...prevState,
-                platform,
-              }))
-            }
-          />
+        <Flex paddingLeft={2} marginBottom={5}>
+          <Box marginRight={5}>
+            <PlatformSelector
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform) =>
+                setGameQuery((prevState) => ({
+                  ...prevState,
+                  platform,
+                }))
+              }
+            />
+          </Box>
           <SortSelector
             sortOrder={gameQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>
@@ -67,7 +69,7 @@ function App() {
               }))
             }
           />
-        </HStack>
+        </Flex>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
